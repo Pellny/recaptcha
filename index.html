@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menschlichkeitsüberprüfung</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    <h1>Menschlichkeitsüberprüfung</h1>
+    <p>Bitte bestätigen Sie, dass Sie ein Mensch sind, indem Sie das reCAPTCHA-Widget unten ausfüllen.</p>
+
+    <div class="g-recaptcha" data-sitekey="Ihr-reCAPTCHA-Schlüssel-hier"></div>
+
+    <button onclick="pruefeMenschlichkeit()">Überprüfen</button>
+
+    <p id="ergebnis"></p>
+
+    <script>
+        function pruefeMenschlichkeit() {
+
+
+            var reCAPTCHAToken = grecaptcha.getResponse();
+
+            var istMenschlich = true;
+
+            if (istMenschlich) {
+                document.getElementById("ergebnis").textContent = "Sie sind ein Mensch!";
+            } else {
+                document.getElementById("ergebnis").textContent = "Sie sind kein Mensch!";
+            }
+        }
+    </script>
+</body>
+</html>
